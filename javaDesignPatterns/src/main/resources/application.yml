@@ -1,6 +1,5 @@
 digest.algorithm: SHA-256
 
-
 logging.level.root: WARN
 spring:
     main:

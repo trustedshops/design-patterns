@@ -1,5 +1,6 @@
 package com.trustedshops.examples.javaDesignPatterns;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,7 +17,8 @@ public class JavaDesignPatternsApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.printf("example usage:   \n\n", args.getNonOptionArgs());
+		System.out.printf("\nJavaDesignPatternsApplication\n\n");
+		System.out.printf("example usage:  javaDesignPatterns.jar command --foo=bar\n\n", args.getNonOptionArgs());
 		System.out.printf("args: %s\n", args.getNonOptionArgs());
 		System.out.printf("options: %s\n", args.getOptionNames());
 	}

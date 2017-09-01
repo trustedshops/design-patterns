@@ -16,6 +16,6 @@ public class MessageDigestFactoryImpl implements MessageDigestFactory {
             return MessageDigest.getInstance(algorithm);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
-        }
-    }
+		}
+	}
 }

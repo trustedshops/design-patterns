@@ -1,13 +1,10 @@
 package com.trustedshops.examples.javaDesignPatterns;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
-
-import java.util.Arrays;
 
 @SpringBootApplication
 @ImportResource({"classpath*:applicationContext.xml"})

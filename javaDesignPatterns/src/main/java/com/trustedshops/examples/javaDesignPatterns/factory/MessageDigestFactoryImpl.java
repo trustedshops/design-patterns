@@ -1,15 +1,14 @@
 package com.trustedshops.examples.javaDesignPatterns.factory;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-@Service
-public class MessageDigestFactoryImpl implements MessageDigestFactory{
-    @Value("${digest.algorithm}")
-    private String algorithm;
+public class MessageDigestFactoryImpl implements MessageDigestFactory {
+    private final String algorithm;
+
+    public MessageDigestFactoryImpl(String algorithm) {
+        this.algorithm = algorithm;
+    }
 
     @Override
     public MessageDigest getMessageDigest() {

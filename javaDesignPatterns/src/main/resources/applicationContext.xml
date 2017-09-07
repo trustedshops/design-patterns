@@ -6,4 +6,7 @@
   <bean id="messageDigestFactory" class="com.trustedshops.examples.javaDesignPatterns.factory.MessageDigestFactoryImpl">
     <constructor-arg type="java.lang.String" value="${digest.algorithm}"/>
   </bean>
+
+  <bean id="commandFactory" class="com.trustedshops.examples.javaDesignPatterns.command.CommandFactoryImpl">
+  </bean>
 </beans>

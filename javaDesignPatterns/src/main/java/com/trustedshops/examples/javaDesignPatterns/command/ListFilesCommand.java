@@ -1,11 +1,15 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
+import com.trustedshops.examples.javaDesignPatterns.utils.io.Directorys;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class ListFilesCommand implements Command {
 
@@ -14,13 +18,6 @@ public class ListFilesCommand implements Command {
         if(commandArgs.size() == 0) {
             throw new IllegalArgumentException("path argument is missing!");
         }
-        File root = new File(commandArgs.get(0));
-        try {
-            Files.walk(root.toPath())
-                    .filter(path -> !Files.isDirectory(path))
-                    .forEach(System.out::println);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Directorys.traverse(commandArgs, System.out::println);
     }
 }

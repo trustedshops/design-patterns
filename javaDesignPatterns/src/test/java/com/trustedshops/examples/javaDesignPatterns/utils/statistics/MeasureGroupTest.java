@@ -12,6 +12,7 @@ public class MeasureGroupTest {
     public void add() {
         MeasureGroup mg = new MeasureGroup();
         assertEquals(Collections.emptyList(), mg.getKeys());
+        assertEquals(0L, mg.getCount("a"));
 
         mg.add("a");
         assertEquals(Collections.singletonList("a"), mg.getKeys());

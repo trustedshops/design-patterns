@@ -1,7 +1,5 @@
 package com.trustedshops.examples.javaDesignPatterns.chain;
 
-import com.trustedshops.examples.javaDesignPatterns.utils.statistics.MeasureCount;
-import com.trustedshops.examples.javaDesignPatterns.utils.statistics.MeasureGroup;
 import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFile;
 import org.junit.Test;
 
@@ -34,23 +32,25 @@ public class FileChainTest {
      */
     @Test
     public void chainTest() {
-        // some statistic stuff ...
-        MeasureCount totalCount = new MeasureCount();
-        MeasureCount totalSize = new MeasureCount();
-        MeasureGroup extensions = new MeasureGroup();
+        FilterElement filterElement = new FilterElement("test");
+        StatisticFileElement statisticFileElement = new StatisticFileElement();
+        DuplicateFileSearchElement duplicateFileSearchElement = new DuplicateFileSearchElement();
+        PrintElement printer = new PrintElement();
+
+        filterElement.setSucessor(statisticFileElement);
+        statisticFileElement.setSucessor(duplicateFileSearchElement);
+        duplicateFileSearchElement.setSucessor(printer);
+
+
+        IOFileChainElement root = statisticFileElement;
 
         for(IOFile file: FILES) {
-            // some statistic stuff ...
-            if(file.getExtension().length() > 0) {
-                extensions.add(file.getExtension());
-            }
-            totalCount.increase();
-            totalSize.increaseWith(file.getSize());
-            // ...
+            root.execute(file);
         }
-
-        assertEquals(Arrays.asList("c", "exe", "txt"), extensions.getKeys());
-        assertEquals(6, extensions.getCount("txt"));
+        // ???
+        assertEquals(Arrays.asList("test.txt705"), duplicateFileSearchElement.getDuplicates());
+        assertEquals(Arrays.asList("c", "exe", "txt"), statisticFileElement.getExtensions().getKeys());
+        assertEquals(6, statisticFileElement.getExtensions().getCount("txt"));
     }
 
 }

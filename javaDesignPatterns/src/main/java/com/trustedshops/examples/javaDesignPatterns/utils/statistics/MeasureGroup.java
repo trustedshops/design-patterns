@@ -28,4 +28,11 @@ public class MeasureGroup {
         }
         return count;
     }
+
+    @Override
+    public String toString() {
+        return "MeasureGroup{" +
+                "values=" + values +
+                '}';
+    }
 }

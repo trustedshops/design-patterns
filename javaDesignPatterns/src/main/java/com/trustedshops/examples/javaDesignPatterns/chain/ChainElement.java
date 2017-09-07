@@ -1,4 +1,4 @@
 package com.trustedshops.examples.javaDesignPatterns.chain;
 
-public class TodoChain {
+public class ChainElement<T> {
 }

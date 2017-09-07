@@ -1,0 +1,35 @@
+package com.trustedshops.examples.javaDesignPatterns.chain.statistics;
+
+import java.util.*;
+
+public class MeasureGroup {
+    private final Map<String, Long> values = new HashMap<>();
+
+    public void add(String key) {
+        if(values.containsKey(key)) {
+            Long count = values.get(key);
+            values.put(key, count + 1);
+        }
+        else {
+            values.put(key, 1L);
+        }
+    }
+
+    public Map<String, Long>  getGroup() {
+        return new HashMap<>(values); // return only a copy of the values;
+    }
+
+    public Collection<String> getKeys() {
+        List<String> result = new ArrayList<>(values.keySet()); // return only a copy of the values;
+        Collections.sort(result);
+        return result;
+    }
+
+    public long getCount(String key) {
+        Long count = values.get(key);
+        if(count == null) {
+            return 0;
+        }
+        return count;
+    }
+}

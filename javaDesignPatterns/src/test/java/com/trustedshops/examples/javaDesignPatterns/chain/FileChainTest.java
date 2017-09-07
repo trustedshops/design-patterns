@@ -4,6 +4,7 @@ import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFile;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import static com.trustedshops.examples.javaDesignPatterns.MockUtils.*;
 import static org.junit.Assert.assertEquals;
@@ -21,35 +22,29 @@ public class FileChainTest {
         ioFile("/tmp/foo.c", 70L),
         ioFile("/tmp/Makefile", 70L),
         ioFile("/tmp/x/.system", 145L),
+        ioFile("/tmp/x/XXX.md", 145L),
     };
 
-    /*
-       exercise 1: lets add some stuff here:
-         * lets find duplicate files by name and size
-         * lets add a file name filter which can be configured dynamically
-
-       exercise 2: lets restructure the code
-     */
     @Test
     public void chainTest() {
-        FilterElement filterElement = new FilterElement("test");
-        StatisticFileElement statisticFileElement = new StatisticFileElement();
-        DuplicateFileSearchElement duplicateFileSearchElement = new DuplicateFileSearchElement();
+        FilterElement filterElement = new FilterElement(".exe");
+        StatisticElement statisticFileElement = new StatisticElement();
+        DuplicateSearchElement duplicateFileSearchElement = new DuplicateSearchElement();
         PrintElement printer = new PrintElement();
 
         filterElement.setSucessor(statisticFileElement);
         statisticFileElement.setSucessor(duplicateFileSearchElement);
         duplicateFileSearchElement.setSucessor(printer);
 
-
-        IOFileChainElement root = statisticFileElement;
+        AbstractIOFileChainElement root = filterElement;
 
         for(IOFile file: FILES) {
             root.execute(file);
         }
-        // ???
-        assertEquals(Arrays.asList("test.txt705"), duplicateFileSearchElement.getDuplicates());
-        assertEquals(Arrays.asList("c", "exe", "txt"), statisticFileElement.getExtensions().getKeys());
+
+        assertEquals(Arrays.asList("/tmp/test.txt", "/tmp/B/test.txt", "/tmp/B/C/X/test.txt"),
+                duplicateFileSearchElement.getDuplicates().stream().map(IOFile::getPath).collect(Collectors.toList()));
+        assertEquals(Arrays.asList("c", "md", "txt"), statisticFileElement.getExtensions().getKeys());
         assertEquals(6, statisticFileElement.getExtensions().getCount("txt"));
     }
 

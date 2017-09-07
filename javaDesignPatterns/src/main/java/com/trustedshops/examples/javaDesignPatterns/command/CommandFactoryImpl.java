@@ -7,6 +7,7 @@ public class CommandFactoryImpl implements CommandFactory {
     private static final Map<String, Class<? extends Command>> COMMANDS = new HashMap<>();
     static {
         COMMANDS.put("listFiles", ListFilesCommand.class);
+        COMMANDS.put("dirStat", DirStatCommand.class);
     }
 
     @Override

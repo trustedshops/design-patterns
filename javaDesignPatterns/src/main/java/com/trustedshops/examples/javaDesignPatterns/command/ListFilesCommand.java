@@ -18,6 +18,6 @@ public class ListFilesCommand implements Command {
         if(commandArgs.size() == 0) {
             throw new IllegalArgumentException("path argument is missing!");
         }
-        Directorys.traverse(commandArgs, System.out::println);
+        Directorys.traverse(commandArgs.get(0), System.out::println);
     }
 }

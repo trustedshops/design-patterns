@@ -1,13 +1,13 @@
 package com.trustedshops.examples.javaDesignPatterns.chain;
 
-public abstract class ChainElement<T> {
-    private ChainElement<T> sucessor;
+public abstract class AbstractChainElement<T> {
+    private AbstractChainElement<T> sucessor;
 
-    public ChainElement<T> getSucessor() {
+    public AbstractChainElement<T> getSucessor() {
         return sucessor;
     }
 
-    public ChainElement<T> setSucessor(ChainElement<T> sucessor) {
+    public AbstractChainElement<T> setSucessor(AbstractChainElement<T> sucessor) {
         this.sucessor = sucessor;
         return sucessor;
     }

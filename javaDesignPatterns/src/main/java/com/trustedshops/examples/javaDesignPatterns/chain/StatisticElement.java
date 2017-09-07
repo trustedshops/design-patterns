@@ -4,7 +4,7 @@ import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFile;
 import com.trustedshops.examples.javaDesignPatterns.utils.statistics.MeasureCount;
 import com.trustedshops.examples.javaDesignPatterns.utils.statistics.MeasureGroup;
 
-public class StatisticFileElement extends IOFileChainElement {
+public class StatisticElement extends AbstractIOFileChainElement {
     private final MeasureCount totalCount = new MeasureCount();
     private final MeasureCount totalSize = new MeasureCount();
     private final MeasureGroup extensions = new MeasureGroup();
@@ -29,5 +29,14 @@ public class StatisticFileElement extends IOFileChainElement {
 
     public MeasureGroup getExtensions() {
         return extensions;
+    }
+
+    @Override
+    public String toString() {
+        return "StatisticElement{" +
+                "totalCount=" + totalCount +
+                ", totalSize=" + totalSize +
+                ", extensions=" + extensions +
+                '}';
     }
 }

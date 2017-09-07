@@ -2,7 +2,7 @@ package com.trustedshops.examples.javaDesignPatterns.chain;
 
 import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFile;
 
-public class FilterElement extends IOFileChainElement {
+public class FilterElement extends AbstractIOFileChainElement {
     private final String value;
 
     public FilterElement(String value) {

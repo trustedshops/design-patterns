@@ -11,10 +11,10 @@ public final class Directorys {
     private Directorys() {
     }
 
-    public static void traverse(List<String> commandArgs, Consumer<Path> fileConsumer) {
-        File root = new File(commandArgs.get(0));
+    public static void traverse(String root, Consumer<Path> fileConsumer) {
+        File rootFile = new File(root);
         try {
-            Files.walk(root.toPath())
+            Files.walk(rootFile.toPath())
                     .filter(path -> !Files.isDirectory(path))
                     .forEach(fileConsumer);
         } catch (IOException e) {

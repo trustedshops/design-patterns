@@ -16,4 +16,11 @@ public class MeasureCount {
     public long getValue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "MeasureCount{" +
+                "value=" + value +
+                '}';
+    }
 }

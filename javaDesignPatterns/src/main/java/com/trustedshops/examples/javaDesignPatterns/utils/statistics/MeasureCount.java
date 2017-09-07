@@ -1,4 +1,4 @@
-package com.trustedshops.examples.javaDesignPatterns.chain.statistics;
+package com.trustedshops.examples.javaDesignPatterns.utils.statistics;
 
 public class MeasureCount {
     private long value;

@@ -1,5 +1,6 @@
-package com.trustedshops.examples.javaDesignPatterns.chain;
+package com.trustedshops.examples.javaDesignPatterns.utils.io;
 
+import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFiles;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

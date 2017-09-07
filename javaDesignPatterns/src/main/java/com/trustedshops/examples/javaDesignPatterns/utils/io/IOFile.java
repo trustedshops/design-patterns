@@ -1,6 +1,4 @@
-package com.trustedshops.examples.javaDesignPatterns.chain;
-
-import java.nio.file.Path;
+package com.trustedshops.examples.javaDesignPatterns.utils.io;
 
 public interface IOFile {
     long getSize();

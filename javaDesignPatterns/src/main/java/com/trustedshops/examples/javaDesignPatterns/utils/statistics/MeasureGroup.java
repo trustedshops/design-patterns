@@ -1,4 +1,4 @@
-package com.trustedshops.examples.javaDesignPatterns.chain.statistics;
+package com.trustedshops.examples.javaDesignPatterns.utils.statistics;
 
 import java.util.*;
 
@@ -13,10 +13,6 @@ public class MeasureGroup {
         else {
             values.put(key, 1L);
         }
-    }
-
-    public Map<String, Long>  getGroup() {
-        return new HashMap<>(values); // return only a copy of the values;
     }
 
     public Collection<String> getKeys() {

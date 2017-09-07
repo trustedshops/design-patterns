@@ -1,7 +1,7 @@
 package com.trustedshops.examples.javaDesignPatterns;
 
-import com.trustedshops.examples.javaDesignPatterns.chain.IOFile;
-import com.trustedshops.examples.javaDesignPatterns.chain.IOFiles;
+import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFile;
+import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFiles;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;

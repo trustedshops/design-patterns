@@ -1,12 +1,11 @@
 package com.trustedshops.examples.javaDesignPatterns.chain;
 
-import com.trustedshops.examples.javaDesignPatterns.chain.statistics.MeasureCount;
-import com.trustedshops.examples.javaDesignPatterns.chain.statistics.MeasureGroup;
+import com.trustedshops.examples.javaDesignPatterns.utils.statistics.MeasureCount;
+import com.trustedshops.examples.javaDesignPatterns.utils.statistics.MeasureGroup;
+import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFile;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
 
 import static com.trustedshops.examples.javaDesignPatterns.MockUtils.*;
 import static org.junit.Assert.assertEquals;
@@ -26,18 +25,28 @@ public class FileChainTest {
         ioFile("/tmp/x/.system", 145L),
     };
 
+    /*
+       exercise 1: lets add some stuff here:
+         * lets find duplicate files by name and size
+         * lets add a file name filter which can be configured dynamically
+
+       exercise 2: lets restructure the code
+     */
     @Test
     public void chainTest() {
+        // some statistic stuff ...
         MeasureCount totalCount = new MeasureCount();
         MeasureCount totalSize = new MeasureCount();
         MeasureGroup extensions = new MeasureGroup();
 
         for(IOFile file: FILES) {
+            // some statistic stuff ...
             if(file.getExtension().length() > 0) {
                 extensions.add(file.getExtension());
             }
             totalCount.increase();
             totalSize.increaseWith(file.getSize());
+            // ...
         }
 
         assertEquals(Arrays.asList("c", "exe", "txt"), extensions.getKeys());

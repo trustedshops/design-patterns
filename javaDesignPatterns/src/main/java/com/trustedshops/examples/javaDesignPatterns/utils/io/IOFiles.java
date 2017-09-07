@@ -1,4 +1,4 @@
-package com.trustedshops.examples.javaDesignPatterns.chain;
+package com.trustedshops.examples.javaDesignPatterns.utils.io;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;

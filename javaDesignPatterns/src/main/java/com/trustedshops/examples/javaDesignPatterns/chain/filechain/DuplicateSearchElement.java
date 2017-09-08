@@ -1,7 +1,6 @@
-package com.trustedshops.examples.javaDesignPatterns.chain;
+package com.trustedshops.examples.javaDesignPatterns.chain.filechain;
 
 import com.trustedshops.examples.javaDesignPatterns.utils.io.IOFile;
-import com.trustedshops.examples.javaDesignPatterns.utils.statistics.MeasureGroup;
 
 import java.util.ArrayList;
 import java.util.Collection;

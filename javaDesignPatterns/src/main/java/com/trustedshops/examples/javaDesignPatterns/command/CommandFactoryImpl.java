@@ -1,13 +1,18 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
+import com.trustedshops.examples.javaDesignPatterns.command.commands.BoldCommand;
+import com.trustedshops.examples.javaDesignPatterns.command.commands.DeleteCommand;
+import com.trustedshops.examples.javaDesignPatterns.command.commands.TypeCommand;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandFactoryImpl implements CommandFactory {
     private static final Map<String, Class<? extends Command>> COMMANDS = new HashMap<>();
     static {
-        COMMANDS.put("listFiles", ListFilesCommand.class);
-        COMMANDS.put("dirStat", DirStatCommand.class);
+        COMMANDS.put("listFiles", DeleteCommand.class);
+        COMMANDS.put("dirStat", TypeCommand.class);
+        COMMANDS.put("dirStat", BoldCommand.class);
     }
 
     @Override

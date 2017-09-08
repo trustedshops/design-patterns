@@ -1,9 +1,8 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import com.trustedshops.examples.javaDesignPatterns.command.model.Document;
+import com.trustedshops.examples.javaDesignPatterns.command.model.SelectedArea;
 
 public interface Command {
-    void execute(List<String> commandArgs, Map<String, Collection<String>> commandOptions);
+    void execute(SelectedArea position, Document document);
 }

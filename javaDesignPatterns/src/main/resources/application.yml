@@ -1,5 +1,5 @@
 digest.algorithm: SHA-256
-app.debug: false
+
 
 logging.level.root: WARN
 spring:

@@ -7,8 +7,8 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Consumer;
 
-public final class Directorys {
-    private Directorys() {
+public final class Directories {
+    private Directories() {
     }
 
     public static void traverse(String root, Consumer<Path> fileConsumer) {

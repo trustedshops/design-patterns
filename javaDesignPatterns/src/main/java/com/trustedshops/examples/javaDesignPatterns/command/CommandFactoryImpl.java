@@ -10,9 +10,9 @@ import java.util.Map;
 public class CommandFactoryImpl implements CommandFactory {
     private static final Map<String, Class<? extends Command>> COMMANDS = new HashMap<>();
     static {
-        COMMANDS.put("listFiles", DeleteCommand.class);
-        COMMANDS.put("dirStat", TypeCommand.class);
-        COMMANDS.put("dirStat", BoldCommand.class);
+        COMMANDS.put("delete", DeleteCommand.class);
+        COMMANDS.put("type", TypeCommand.class);
+        COMMANDS.put("bold", BoldCommand.class);
     }
 
     @Override

@@ -1,5 +1,20 @@
 = Java Design Patterns
 
+gfdgjfdgjkglkdfjgkldf
+
+[[main-classes]]
+.The PlantUML block extension class
+[plantuml, sample-plantuml-diagram, alt="Class diagram", width=135, height=118]
+----
+class FooBar
+class PlantUmlBlock
+BlockProcessor <|-- PlantUmlBlock
+----
+
+glfdglfdglkd
+
+include::src/test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[lines=15..26]
+
 == Quickstart
 
 build the project:

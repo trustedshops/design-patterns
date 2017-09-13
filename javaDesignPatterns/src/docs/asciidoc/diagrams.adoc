@@ -1,0 +1,21 @@
+
+== Chain of Responsibility
+
+[plantuml, diagram-chain-classes, png]
+....
+
+interface ChainElement<T>
+class AbstractChainElement<T>
+class AbstractIOFileChainElement
+class DuplicateSearchElement
+class FilterElement
+class PrintElement
+class StatisticElement
+
+ChainElement <|-- AbstractChainElement
+AbstractChainElement <|-- AbstractIOFileChainElement
+AbstractIOFileChainElement <|-- DuplicateSearchElement
+AbstractIOFileChainElement <|-- FilterElement
+AbstractIOFileChainElement <|-- PrintElement
+AbstractIOFileChainElement <|-- StatisticElement
+....

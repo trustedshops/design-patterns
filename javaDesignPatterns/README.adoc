@@ -1,10 +1,21 @@
 = Java Design Patterns
 
+include::foo.txt[lines=1..2]
+
 == Quickstart
 
 build the project:
 
   $ gradle build
+
+generate documentation:
+
+  $ gradle asciidoctor
+  $ gradle copy-diagrams
+
+you can find the files here:
+
+  build/asciidoc/html5/
 
 run tests:
 
@@ -13,3 +24,16 @@ run tests:
 run the project:
 
   $ ./build/libs/javaDesignPatterns.jar
+
+== diagrams
+
+install asciidoctor:
+
+  sudo gem install asciidoctor-diagram
+
+generate diagrams:
+
+  cd src/docs/asciidoc
+  asciidoctor -r asciidoctor-diagram diagrams.adoc
+
+

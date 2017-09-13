@@ -17,6 +17,8 @@ image:diagram-chain-classes.png[Diagram]
 include::../../main/java/com/trustedshops/examples/javaDesignPatterns/chain/ChainElement.java[lines=1..-1]
 ----
 
+see link:../../main/java/com/trustedshops/examples/javaDesignPatterns/chain/ChainElement.java[ChainElement.java]
+
 ==== How to use the Chain
 
 Create the root element and add the preceding elemnts by using the setSucessor method.
@@ -25,6 +27,8 @@ Create the root element and add the preceding elemnts by using the setSucessor m
 ----
 include::../../test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[lines=31..45]
 ----
+
+see link:../../test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[FileChainTest.java]
 
 == Quickstart
 

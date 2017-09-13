@@ -1,3 +1,0 @@
-= Design Patterns
-
-- link:chain.adoc[Chain of Responsibility]

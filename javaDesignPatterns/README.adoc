@@ -1,6 +1,6 @@
 = Java Design Patterns
 
-link:src/docs/asciidoc/index.adoc[The Design Patterns]
+- link:src/docs/asciidoc/chain.adoc[Chain of Responsibility]
 
 == Quickstart
 

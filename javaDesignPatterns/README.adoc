@@ -1,6 +1,6 @@
 = Java Design Patterns
 
-include::foo.txt[lines=1..2]
+link:src/docs/asciidoc/index.adoc[The Design Patterns]
 
 == Quickstart
 

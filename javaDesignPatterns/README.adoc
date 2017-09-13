@@ -1,0 +1,15 @@
+= Java Design Patterns
+
+== Quickstart
+
+build the project:
+
+  $ gradle build
+
+run tests:
+
+  $ gradle test
+
+run the project:
+
+  $ ./build/libs/javaDesignPatterns.jar

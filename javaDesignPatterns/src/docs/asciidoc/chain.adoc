@@ -19,9 +19,12 @@ see link:../../main/java/com/trustedshops/examples/javaDesignPatterns/chain/Chai
 
 Create the root element and add the preceding elemnts by using the setSucessor method.
 
+image:diagram-chain-classes-aggregation.png[Diagram]
+
 [source,java]
 ----
 include::../../test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[lines=31..45]
 ----
 
 see link:../../test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[FileChainTest.java]
+

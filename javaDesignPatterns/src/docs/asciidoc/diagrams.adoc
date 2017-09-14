@@ -19,3 +19,13 @@ AbstractIOFileChainElement <|-- FilterElement
 AbstractIOFileChainElement <|-- PrintElement
 AbstractIOFileChainElement <|-- StatisticElement
 ....
+
+
+[plantuml, diagram-chain-classes-aggregation, png]
+....
+left to right direction
+
+FilterElement *-- DuplicateSearchElement
+DuplicateSearchElement *-- StatisticElement
+StatisticElement *-- PrintElement
+....

@@ -1,8 +1,10 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
-import com.trustedshops.examples.javaDesignPatterns.command.model.Document;
-import com.trustedshops.examples.javaDesignPatterns.command.model.SelectedArea;
+import com.trustedshops.examples.javaDesignPatterns.command.model.CommandOptions;
 
-public interface Command {
-    void execute(SelectedArea position, Document document);
+import java.io.Serializable;
+
+public interface Command extends Serializable {
+    void execute();
+    void revert();
 }

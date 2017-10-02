@@ -17,4 +17,8 @@ public class MoveCommand extends AbstractCommand {
     public void undo(FileSystemOperations fileSystemOperations) {
         fileSystemOperations.move(getTarget(), getSource());
     }
+
+    public MoveCommand newClone() {
+        return new MoveCommand(getOptions());
+    }
 }

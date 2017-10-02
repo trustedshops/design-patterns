@@ -37,14 +37,15 @@ public class CommandChainTest {
         Command commandChain = parser.parse(
                 "move Hello.java src/main/java/Hello.java",
                 "move HelloTest.java src/test/java/HelloTest.java",
-                "copy README.md LICENSE.txt");
+                "copy README.md LICENSE.txt",
+                "move LICENSE.txt LICENSE");
 
         executor.execute(fs, commandChain);
 
         /* commands executed */
 
         assertEquals(Arrays.asList(
-                "LICENSE.txt",
+                "LICENSE",
                 "README.md",
                 "pom.xml",
                 "src/main/java/Hello.java",

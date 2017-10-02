@@ -19,8 +19,9 @@ abstract class AbstractCommand implements Command {
         return successor;
     }
 
-    public void setSuccessor(Command successor) {
+    public Command setSuccessor(Command successor) {
         this.successor = successor;
+        return successor;
     }
 
     public String getSource() {

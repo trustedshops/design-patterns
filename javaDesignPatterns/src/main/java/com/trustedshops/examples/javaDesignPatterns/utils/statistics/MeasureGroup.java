@@ -16,7 +16,7 @@ public class MeasureGroup {
     }
 
     public Collection<String> getKeys() {
-        List<String> result = new ArrayList<>(values.keySet()); // return only a copy of the values;
+        List<String> result = new ArrayList<>(values.keySet()); // return only a newClone of the values;
         Collections.sort(result);
         return result;
     }

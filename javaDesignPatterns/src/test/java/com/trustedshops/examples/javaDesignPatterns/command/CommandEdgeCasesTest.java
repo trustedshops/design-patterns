@@ -56,7 +56,7 @@ public class CommandEdgeCasesTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void noInvalidCommandChain() {
-        parser.parse("copy 1.txt 2.txt", "");
+        parser.parse("newClone 1.txt 2.txt", "");
     }
 
 }

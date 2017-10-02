@@ -2,6 +2,8 @@ package com.trustedshops.examples.javaDesignPatterns.command;
 
 import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemOperations;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class CommandExecutorImpl implements CommandExecutor {
@@ -14,6 +16,14 @@ public class CommandExecutorImpl implements CommandExecutor {
         }
     }
 
+    private Command revertChain(Command root) {
+        List<Command> reverted = new ArrayList<>();
+        processChain(root, (cmd) -> reverted.add(0, cmd.newClone()));
+        Command revertedRoot = reverted.get(0);
+        reverted.subList(1, reverted.size()).stream().reduce(revertedRoot, Command::setSuccessor);
+        return revertedRoot;
+    }
+
     @Override
     public void execute(final FileSystemOperations fileSystemOperations, Command root) {
         processChain(root, (cmd) -> cmd.execute(fileSystemOperations));
@@ -21,6 +31,7 @@ public class CommandExecutorImpl implements CommandExecutor {
 
     @Override
     public void undo(FileSystemOperations fileSystemOperations, Command root) {
-        processChain(root, (cmd) -> cmd.undo(fileSystemOperations));
+        Command revertedRoot = revertChain(root);
+        processChain(revertedRoot, (cmd) -> cmd.undo(fileSystemOperations));
     }
 }

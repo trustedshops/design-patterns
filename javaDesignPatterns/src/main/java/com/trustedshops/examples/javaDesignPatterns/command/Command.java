@@ -9,5 +9,6 @@ public interface Command extends Serializable {
     void execute(FileSystemOperations fileSystemOperations);
     void undo(FileSystemOperations fileSystemOperations);
     Command getSuccessor();
-    void setSuccessor(Command command);
+    Command setSuccessor(Command command);
+    Command newClone();
 }

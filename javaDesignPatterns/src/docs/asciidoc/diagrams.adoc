@@ -44,6 +44,7 @@ Command <|-- AbstractCommand
 AbstractCommand <|-- MoveCommand
 AbstractCommand <|-- CopyCommand
 Command : getSuccessor()
+Command : getAncestor()
 Command : execute(fs)
 Command : undo(fs)
 AbstractCommand : getCommandOptions()
@@ -54,9 +55,14 @@ AbstractCommand : getCommandOptions()
 left to right direction
 
 MoveCommand_1 o-- MoveCommand_2
+MoveCommand_2 o-- MoveCommand_1
 MoveCommand_2 o-- CopyCommand_3
+CopyCommand_3 o-- MoveCommand_2
 
 MoveCommand_1 : getSuccessor()
+MoveCommand_1 : getAncestor()
 MoveCommand_2 : getSuccessor()
+MoveCommand_2 : getAncestor()
 CopyCommand_3 : getSuccessor()
+CopyCommand_3 : getAncestor()
 ....

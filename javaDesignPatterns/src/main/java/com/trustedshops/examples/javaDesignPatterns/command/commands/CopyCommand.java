@@ -17,8 +17,4 @@ public class CopyCommand extends AbstractCommand {
     public void undo(FileSystemOperations fileSystemOperations) {
         fileSystemOperations.delete(getTarget());
     }
-
-    public CopyCommand newClone() {
-        return new CopyCommand(getOptions());
-    }
 }

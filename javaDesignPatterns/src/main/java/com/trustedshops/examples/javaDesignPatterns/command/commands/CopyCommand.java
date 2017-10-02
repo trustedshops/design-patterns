@@ -9,12 +9,12 @@ public class CopyCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute() {
-
+    public void execute(FileSystemOperations fileSystemOperations) {
+        fileSystemOperations.copy(getSource(), getTarget());
     }
 
     @Override
-    public void revert() {
-
+    public void undo(FileSystemOperations fileSystemOperations) {
+        fileSystemOperations.delete(getTarget());
     }
 }

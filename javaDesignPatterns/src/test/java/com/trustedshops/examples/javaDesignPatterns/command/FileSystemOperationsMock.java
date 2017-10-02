@@ -4,6 +4,7 @@ import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemOperati
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class FileSystemOperationsMock implements FileSystemOperations {
@@ -30,11 +31,18 @@ public class FileSystemOperationsMock implements FileSystemOperations {
     public void move(String src, String trg) {
         fileExists(src);
         file(trg);
-        files.remove(src);
+        delete(src);
+    }
+
+    @Override
+    public void delete(String path) {
+        files.remove(path);
     }
 
     public Collection<String> getFiles() {
-        return new ArrayList<>(files);
+        ArrayList<String> result = new ArrayList<>(files);
+        Collections.sort(result);
+        return result;
     }
 
 }

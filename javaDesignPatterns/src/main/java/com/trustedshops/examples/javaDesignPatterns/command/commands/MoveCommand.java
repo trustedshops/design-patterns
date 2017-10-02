@@ -9,12 +9,12 @@ public class MoveCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute() {
-
+    public void execute(FileSystemOperations fileSystemOperations) {
+        fileSystemOperations.move(getSource(), getTarget());
     }
 
     @Override
-    public void revert() {
-
+    public void undo(FileSystemOperations fileSystemOperations) {
+        fileSystemOperations.move(getTarget(), getSource());
     }
 }

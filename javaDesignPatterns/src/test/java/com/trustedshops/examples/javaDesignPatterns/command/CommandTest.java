@@ -34,12 +34,12 @@ public class CommandTest {
                 "README.md",
                 "pom.xml"), fs.getFiles());
 
-        Command command = parser.parse(
+        Command commandChain = parser.parse(
                 "move Hello.java src/main/java/Hello.java",
                 "move HelloTest.java src/test/java/HelloTest.java",
                 "copy README.md LICENSE.txt");
 
-        executor.execute(fs, command);
+        executor.execute(fs, commandChain);
 
         /* commands executed */
 
@@ -50,7 +50,7 @@ public class CommandTest {
                 "src/main/java/Hello.java",
                 "src/test/java/HelloTest.java"), fs.getFiles());
 
-        executor.undo(fs, command);
+        executor.undo(fs, commandChain);
 
         /* after undo operation */
 

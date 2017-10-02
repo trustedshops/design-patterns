@@ -25,7 +25,38 @@ AbstractIOFileChainElement <|-- StatisticElement
 ....
 left to right direction
 
-FilterElement *-- DuplicateSearchElement
-DuplicateSearchElement *-- StatisticElement
-StatisticElement *-- PrintElement
+FilterElement o-- DuplicateSearchElement
+DuplicateSearchElement o-- StatisticElement
+StatisticElement o-- PrintElement
+....
+
+== Command
+
+
+[plantuml, diagram-command-classes, png]
+....
+interface Command
+class AbstractCommand
+class MoveCommand
+class CopyCommand
+
+Command <|-- AbstractCommand
+AbstractCommand <|-- MoveCommand
+AbstractCommand <|-- CopyCommand
+Command : getSuccessor()
+Command : execute(fs)
+Command : undo(fs)
+AbstractCommand : getCommandOptions()
+....
+
+[plantuml, diagram-command-classes-aggregation, png]
+....
+left to right direction
+
+MoveCommand_1 o-- MoveCommand_2
+MoveCommand_2 o-- CopyCommand_3
+
+MoveCommand_1 : getSuccessor()
+MoveCommand_2 : getSuccessor()
+CopyCommand_3 : getSuccessor()
 ....

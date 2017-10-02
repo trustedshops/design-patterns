@@ -1,0 +1,16 @@
+= Command
+
+We wand to write a small script engine for simple file operations.
+Every operation should be managed as single command. Commands ca be
+linked to a command chain.
+
+Changes performed by commands can be reverted by an undo function.
+
+== Command Classes
+
+image:diagram-command-classes.png[Diagram]
+
+== Command Chains
+
+image:diagram-command-classes-aggregation.png[Diagram]
+

@@ -26,6 +26,8 @@ public class CommandTest {
                 .file("pom.xml")
                 .file("HelloTest.java");
 
+        /* initial setup */
+
         assertEquals(Arrays.asList(
                 "Hello.java",
                 "HelloTest.java",
@@ -39,13 +41,18 @@ public class CommandTest {
 
         executor.execute(fs, command);
 
-        assertEquals(Arrays.asList("LICENSE.txt",
-                                   "README.md",
-                                   "pom.xml",
-                                   "src/main/java/Hello.java",
-                                   "src/test/java/HelloTest.java"), fs.getFiles());
+        /* commands executed */
+
+        assertEquals(Arrays.asList(
+                "LICENSE.txt",
+                "README.md",
+                "pom.xml",
+                "src/main/java/Hello.java",
+                "src/test/java/HelloTest.java"), fs.getFiles());
 
         executor.undo(fs, command);
+
+        /* after undo operation */
 
         assertEquals(Arrays.asList(
                 "Hello.java",

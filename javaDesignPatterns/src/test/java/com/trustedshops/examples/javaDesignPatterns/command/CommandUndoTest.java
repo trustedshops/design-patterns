@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
-public class CommandTest {
+public class CommandUndoTest {
     private CommandParser parser;
     private CommandExecutor executor;
 

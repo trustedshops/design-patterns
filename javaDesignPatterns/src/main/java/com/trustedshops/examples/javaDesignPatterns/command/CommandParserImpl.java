@@ -28,7 +28,7 @@ public class CommandParserImpl implements CommandParser {
         String src = args[1];
         String trg = args[2];
         if(!COMMANDS.containsKey(name)) {
-            throw new IllegalArgumentException(String.format("no command for: %s", name));
+            throw new IllegalArgumentException(String.format("command not found: %s", name));
         }
         return COMMANDS.get(name).apply(new CommandOptions(src, trg));
 

@@ -1,29 +1,10 @@
 package com.trustedshops.examples.javaDesignPatterns.command.commands;
 
-import com.trustedshops.examples.javaDesignPatterns.command.Command;
 import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemApi;
-import com.trustedshops.examples.javaDesignPatterns.command.model.CommandOptions;
 
-abstract class AbstractCommand implements Command {
-    private final CommandOptions options;
+public abstract class AbstractCommand implements Command {
     private Command successor;
     private Command ancestor;
-
-    AbstractCommand(CommandOptions options) {
-        this.options = options;
-    }
-
-    private boolean hasSuccessor() {
-        return getSuccessor() != null;
-    }
-
-    private boolean hasAncestor() {
-        return getAncestor() != null;
-    }
-
-    protected CommandOptions getOptions() {
-        return options;
-    }
 
     public Command getSuccessor() {
         return successor;
@@ -40,14 +21,6 @@ abstract class AbstractCommand implements Command {
 
     public void setAncestor(Command ancestor) {
         this.ancestor = ancestor;
-    }
-
-    public String getSource() {
-        return getOptions().getSource();
-    }
-
-    public String getTarget() {
-        return getOptions().getTarget();
     }
 
     @Override

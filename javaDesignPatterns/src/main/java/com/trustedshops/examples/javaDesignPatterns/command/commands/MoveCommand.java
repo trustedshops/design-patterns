@@ -4,17 +4,18 @@ import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemApi;
 import com.trustedshops.examples.javaDesignPatterns.command.model.CommandOptions;
 
 public class MoveCommand extends AbstractCommand {
+    private final CommandOptions options;
     public MoveCommand(CommandOptions options) {
-        super(options);
+        this.options = options;
     }
 
     @Override
     public void doExecute(FileSystemApi api) {
-        api.move(getSource(), getTarget());
+        api.move(options.getSource(), options.getTarget());
     }
 
     @Override
     public void doUndo(FileSystemApi api) {
-        api.move(getTarget(), getSource());
+        api.move(options.getTarget(), options.getSource());
     }
 }

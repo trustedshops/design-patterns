@@ -1,5 +1,6 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
+import com.trustedshops.examples.javaDesignPatterns.command.commands.CommandChain;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,12 +10,10 @@ import static org.junit.Assert.assertEquals;
 
 public class CommandChainTest {
     private CommandParser parser;
-    private CommandExecutor executor;
 
     @Before
     public void init() {
         parser = new CommandParserImpl();
-        executor = new CommandExecutorImpl();
     }
 
     @Test
@@ -33,13 +32,13 @@ public class CommandChainTest {
                 "README.md",
                 "pom.xml"), fs.getFiles());
 
-        Command commandChain = parser.parse(
+        CommandChain commandChain = parser.parse(
                 "move Hello.java src/main/java/Hello.java",
                 "move HelloTest.java src/test/java/HelloTest.java",
                 "copy README.md LICENSE.txt",
                 "move LICENSE.txt LICENSE");
 
-        executor.execute(fs, commandChain);
+        commandChain.execute(fs);
 
         /* commands executed */
 
@@ -50,7 +49,7 @@ public class CommandChainTest {
                 "src/main/java/Hello.java",
                 "src/test/java/HelloTest.java"), fs.getFiles());
 
-        executor.undo(fs, commandChain);
+        commandChain.undo(fs);
 
         /* after undo operation */
 

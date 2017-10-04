@@ -1,7 +1,6 @@
 package com.trustedshops.examples.javaDesignPatterns.command.model;
 
 import java.io.Serializable;
-import java.nio.file.Path;
 
 public class CommandOptions implements Serializable {
     private final String source;

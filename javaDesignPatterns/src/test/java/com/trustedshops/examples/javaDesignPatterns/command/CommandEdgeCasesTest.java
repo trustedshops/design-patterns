@@ -1,5 +1,6 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
+import com.trustedshops.examples.javaDesignPatterns.command.commands.CommandChain;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,12 +10,10 @@ import static org.junit.Assert.assertEquals;
 
 public class CommandEdgeCasesTest {
     private CommandParser parser;
-    private CommandExecutor executor;
 
     @Before
     public void init() {
         parser = new CommandParserImpl();
-        executor = new CommandExecutorImpl();
     }
 
     @Test
@@ -23,12 +22,12 @@ public class CommandEdgeCasesTest {
 
         assertEquals(Arrays.asList("README.md"), fs.getFiles());
 
-        Command commandChain = parser.parse("copy README.md LICENSE.txt");
-        executor.execute(fs, commandChain);
+        CommandChain commandChain = parser.parse("copy README.md LICENSE.txt");
+        commandChain.execute(fs);
 
         assertEquals(Arrays.asList("LICENSE.txt", "README.md"), fs.getFiles());
 
-        executor.undo(fs, commandChain);
+        commandChain.undo(fs);
 
         assertEquals(Arrays.asList("README.md"), fs.getFiles());
     }

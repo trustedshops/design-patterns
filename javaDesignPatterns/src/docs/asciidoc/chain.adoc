@@ -32,7 +32,7 @@ image:diagram-chain-classes-aggregation.png[Diagram]
 
 [source,java]
 ----
- FilterElement filterElement = new FilterElement(".exe");
+FilterElement filterElement = new FilterElement(".exe");
         StatisticElement statisticFileElement = new StatisticElement();
 DuplicateSearchElement duplicateFileSearchElement = new DuplicateSearchElement();
 PrintElement printer = new PrintElement();

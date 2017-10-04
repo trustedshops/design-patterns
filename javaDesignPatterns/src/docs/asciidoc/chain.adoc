@@ -8,23 +8,43 @@ image:diagram-chain-classes.png[Diagram]
 
 == The Base Class
 
+The interface link:../../main/java/com/trustedshops/examples/javaDesignPatterns/chain/ChainElement.java[ChainElement] describes the necessary functions.
+
 [source,java]
 ----
-include::../../main/java/com/trustedshops/examples/javaDesignPatterns/chain/ChainElement.java[lines=1..-1]
+package com.trustedshops.examples.javaDesignPatterns.chain;
+
+public interface ChainElement<T> {
+    ChainElement<T> getSucessor();
+
+    ChainElement<T> setSucessor(ChainElement<T> sucessor);
+
+    void execute(T item);
+}
 ----
 
-see link:../../main/java/com/trustedshops/examples/javaDesignPatterns/chain/ChainElement.java[ChainElement.java]
 
 == How to use the Chain
 
-Create the root element and add the preceding elemnts by using the setSucessor method.
+Create the root element and add the preceding elemnts by using the setSucessor method (see link:../../test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[FileChainTest]).
 
 image:diagram-chain-classes-aggregation.png[Diagram]
 
 [source,java]
 ----
-include::../../test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[lines=31..45]
-----
+ FilterElement filterElement = new FilterElement(".exe");
+        StatisticElement statisticFileElement = new StatisticElement();
+DuplicateSearchElement duplicateFileSearchElement = new DuplicateSearchElement();
+PrintElement printer = new PrintElement();
 
-see link:../../test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[FileChainTest.java]
+filterElement.setSucessor(statisticFileElement);
+statisticFileElement.setSucessor(duplicateFileSearchElement);
+duplicateFileSearchElement.setSucessor(printer);
+
+AbstractIOFileChainElement root = filterElement;
+
+for(IOFile file: FILES) {
+    root.execute(file);
+}
+----
 

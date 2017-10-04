@@ -1,16 +1,13 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
-import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemOperations;
-
-import java.util.function.Consumer;
+import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemApi;
 
 public class CommandExecutorImpl implements CommandExecutor {
 
-    private Command processForwards(Command root, Consumer<Command> consumer) {
+    private Command lastCommand(Command root) {
         Command command = root;
         Command last = root;
         while (command != null) {
-            consumer.accept(command);
             command = command.getSuccessor();
             if(command != null) {
                 last = command;
@@ -19,25 +16,13 @@ public class CommandExecutorImpl implements CommandExecutor {
         return last;
     }
 
-    private Command lastCommand(Command root) {
-        return processForwards(root, (cmd) -> {});
-    }
-
-    private void processBackwads(Command root, Consumer<Command> consumer) {
-        Command command = lastCommand(root);
-        while (command != null) {
-            consumer.accept(command);
-            command = command.getAncestor();
-        }
+    @Override
+    public void execute(final FileSystemApi api, Command root) {
+        root.execute(api);
     }
 
     @Override
-    public void execute(final FileSystemOperations fileSystemOperations, Command root) {
-        processForwards(root, (cmd) -> cmd.execute(fileSystemOperations));
-    }
-
-    @Override
-    public void undo(FileSystemOperations fileSystemOperations, Command root) {
-        processBackwads(root, (cmd) -> cmd.undo(fileSystemOperations));
+    public void undo(FileSystemApi api, Command root) {
+        lastCommand(root).undo(api);
     }
 }

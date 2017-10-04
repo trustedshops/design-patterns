@@ -1,9 +1,9 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
-import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemOperations;
+import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemApi;
 
 public interface CommandExecutor {
-    void execute(FileSystemOperations fileSystemOperations, Command root);
-    void undo(FileSystemOperations fileSystemOperations, Command root);
+    void execute(FileSystemApi api, Command root);
+    void undo(FileSystemApi api, Command root);
 
 }

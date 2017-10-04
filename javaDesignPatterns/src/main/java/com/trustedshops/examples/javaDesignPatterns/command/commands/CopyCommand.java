@@ -1,6 +1,6 @@
 package com.trustedshops.examples.javaDesignPatterns.command.commands;
 
-import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemOperations;
+import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemApi;
 import com.trustedshops.examples.javaDesignPatterns.command.model.CommandOptions;
 
 public class CopyCommand extends AbstractCommand {
@@ -9,12 +9,12 @@ public class CopyCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute(FileSystemOperations fileSystemOperations) {
-        fileSystemOperations.copy(getSource(), getTarget());
+    public void doExecute(FileSystemApi api) {
+        api.copy(getSource(), getTarget());
     }
 
     @Override
-    public void undo(FileSystemOperations fileSystemOperations) {
-        fileSystemOperations.delete(getTarget());
+    public void doUndo(FileSystemApi api) {
+        api.delete(getTarget());
     }
 }

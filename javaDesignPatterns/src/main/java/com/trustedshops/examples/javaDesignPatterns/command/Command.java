@@ -1,13 +1,12 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
-import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemOperations;
-import com.trustedshops.examples.javaDesignPatterns.command.model.CommandOptions;
+import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemApi;
 
 import java.io.Serializable;
 
 public interface Command extends Serializable {
-    void execute(FileSystemOperations fileSystemOperations);
-    void undo(FileSystemOperations fileSystemOperations);
+    void execute(FileSystemApi api);
+    void undo(FileSystemApi api);
     Command getSuccessor();
     void setSuccessor(Command command);
     Command getAncestor();

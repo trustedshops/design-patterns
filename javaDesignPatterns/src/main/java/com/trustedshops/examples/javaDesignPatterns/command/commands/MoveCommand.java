@@ -1,6 +1,6 @@
 package com.trustedshops.examples.javaDesignPatterns.command.commands;
 
-import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemOperations;
+import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemApi;
 import com.trustedshops.examples.javaDesignPatterns.command.model.CommandOptions;
 
 public class MoveCommand extends AbstractCommand {
@@ -9,12 +9,12 @@ public class MoveCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute(FileSystemOperations fileSystemOperations) {
-        fileSystemOperations.move(getSource(), getTarget());
+    public void doExecute(FileSystemApi api) {
+        api.move(getSource(), getTarget());
     }
 
     @Override
-    public void undo(FileSystemOperations fileSystemOperations) {
-        fileSystemOperations.move(getTarget(), getSource());
+    public void doUndo(FileSystemApi api) {
+        api.move(getTarget(), getSource());
     }
 }

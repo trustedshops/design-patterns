@@ -1,6 +1,5 @@
 package com.trustedshops.examples.javaDesignPatterns.command;
 
-import com.trustedshops.examples.javaDesignPatterns.command.io.FileSystemOperations;
 import org.junit.Before;
 import org.junit.Test;
 

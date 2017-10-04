@@ -30,6 +30,17 @@ image:diagram-command-classes.png[Diagram]
 
 Commands can be connected to each other by the attributes successor and ancestor.
 
+Here are some commands:
+
+[source,bash]
+----
+move Hello.java src/main/java/Hello.java
+move HelloTest.java src/test/java/HelloTest.java
+copy README.md LICENSE.txt
+----
+
+Here are the equvalent command objects:
+
 image:diagram-command-classes-aggregation.png[Diagram]
 
 In the link:../../main/java/com/trustedshops/examples/javaDesignPatterns/command/commands/AbstractCommand.java[AbstractCommand] class you can see the chain execution code:

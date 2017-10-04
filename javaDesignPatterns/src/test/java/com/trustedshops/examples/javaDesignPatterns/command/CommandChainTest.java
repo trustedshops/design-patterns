@@ -4,7 +4,7 @@ import com.trustedshops.examples.javaDesignPatterns.command.commands.CommandChai
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
+import static java.util.Arrays.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,7 +26,7 @@ public class CommandChainTest {
 
         /* initial setup */
 
-        assertEquals(Arrays.asList(
+        assertEquals(asList(
                 "Hello.java",
                 "HelloTest.java",
                 "README.md",
@@ -42,7 +42,7 @@ public class CommandChainTest {
 
         /* commands executed */
 
-        assertEquals(Arrays.asList(
+        assertEquals(asList(
                 "LICENSE",
                 "README.md",
                 "pom.xml",
@@ -53,7 +53,7 @@ public class CommandChainTest {
 
         /* after undo operation */
 
-        assertEquals(Arrays.asList(
+        assertEquals(asList(
                 "Hello.java",
                 "HelloTest.java",
                 "README.md",

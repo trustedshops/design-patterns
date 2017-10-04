@@ -4,7 +4,7 @@ import com.trustedshops.examples.javaDesignPatterns.command.commands.CommandChai
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
+import static java.util.Arrays.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,16 +20,16 @@ public class CommandEdgeCasesTest {
     public void oneCommandDoUndo() {
         FileSystemOperationsMock fs = new FileSystemOperationsMock().file("README.md");
 
-        assertEquals(Arrays.asList("README.md"), fs.getFiles());
+        assertEquals(asList("README.md"), fs.getFiles());
 
         CommandChain commandChain = parser.parse("copy README.md LICENSE.txt");
         commandChain.execute(fs);
 
-        assertEquals(Arrays.asList("LICENSE.txt", "README.md"), fs.getFiles());
+        assertEquals(asList("LICENSE.txt", "README.md"), fs.getFiles());
 
         commandChain.undo(fs);
 
-        assertEquals(Arrays.asList("README.md"), fs.getFiles());
+        assertEquals(asList("README.md"), fs.getFiles());
     }
 
     @Test(expected = IllegalArgumentException.class)

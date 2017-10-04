@@ -35,19 +35,22 @@ StatisticElement o-- PrintElement
 
 [plantuml, diagram-command-classes, png]
 ....
+interface Serializable
 interface Command
 class AbstractCommand
 class MoveCommand
 class CopyCommand
+class CommandChain
 
+Serializable <|-- Command
 Command <|-- AbstractCommand
 AbstractCommand <|-- MoveCommand
 AbstractCommand <|-- CopyCommand
+AbstractCommand <|-- CommandChain
 Command : getSuccessor()
 Command : getAncestor()
 Command : execute(fs)
 Command : undo(fs)
-AbstractCommand : getCommandOptions()
 ....
 
 [plantuml, diagram-command-classes-aggregation, png]
@@ -65,4 +68,101 @@ MoveCommand_2 : getSuccessor()
 MoveCommand_2 : getAncestor()
 CopyCommand_3 : getSuccessor()
 CopyCommand_3 : getAncestor()
+....
+
+
+
+
+[plantuml, diagram-command-seq, png]
+....
+MoveCommand_1 -> MoveCommand_1: doExecute
+MoveCommand_1 -> MoveCommand_2: successor.execute
+MoveCommand_2 -> MoveCommand_2: doExecute
+MoveCommand_2 -> CopyCommand_3: successor.execute
+CopyCommand_3 -> CopyCommand_3: doExecute
+
+....
+
+
+
+[plantuml, diagram-command-classes-aggregation-chain, png]
+....
+left to right direction
+
+CommandChain o-- MoveCommand_1: first
+CommandChain o-- CopyCommand_3: last
+MoveCommand_1 o-- MoveCommand_2
+MoveCommand_2 o-- MoveCommand_1
+MoveCommand_2 o-- CopyCommand_3
+CopyCommand_3 o-- MoveCommand_2
+
+MoveCommand_1 : getSuccessor()
+MoveCommand_1 : getAncestor()
+MoveCommand_2 : getSuccessor()
+MoveCommand_2 : getAncestor()
+CopyCommand_3 : getSuccessor()
+CopyCommand_3 : getAncestor()
+CommandChain : getFirst()
+CommandChain : getFLast)
+CommandChain : getSuccessor()
+CommandChain : getAncestor()
+
+
+....
+
+
+
+[plantuml, diagram-command-chain-seq, png]
+....
+CommandChain -> MoveCommand_1: first.execute
+MoveCommand_1 -> MoveCommand_1: doExecute
+MoveCommand_1 -> MoveCommand_2: successor.execute
+MoveCommand_2 -> MoveCommand_2: doExecute
+MoveCommand_2 -> CopyCommand_3: successor.execute
+CopyCommand_3 -> CopyCommand_3: doExecute
+
+....
+
+[plantuml, diagram-command-chain-undo-seq, png]
+....
+CommandChain -> CopyCommand_3: last.undo
+CopyCommand_3 -> CopyCommand_3: doUndo
+CopyCommand_3 -> MoveCommand_2: successor.undo
+MoveCommand_2 -> MoveCommand_2: doUndo
+MoveCommand_2 -> MoveCommand_1: successor.undo
+MoveCommand_1 -> MoveCommand_1: doUndo
+
+....
+
+
+[plantuml, diagram-command-call-direct, png]
+....
+storage caller
+storage callee
+
+caller -> callee: direct call
+....
+
+[plantuml, diagram-command-call-cmd, png]
+....
+storage caller
+storage command
+storage callee
+
+caller -> command: create
+command -> callee: call
+....
+
+
+[plantuml, diagram-command-call-queue, png]
+....
+storage caller
+storage command
+queue queue
+storage callee
+
+caller -> queue: put
+queue -> command: pull
+command -> callee: call
+
 ....

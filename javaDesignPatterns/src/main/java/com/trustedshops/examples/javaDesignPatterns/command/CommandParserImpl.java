@@ -39,7 +39,7 @@ public class CommandParserImpl implements CommandParser {
     public CommandChain parse(String... lines) {
         Objects.requireNonNull(lines);
         if(lines.length < 1) {
-            throw new IllegalArgumentException("no commads found!");
+            throw new IllegalArgumentException("no commands found!");
         }
         Command first = parseCommandLine(lines[0]);
         Command last = first;

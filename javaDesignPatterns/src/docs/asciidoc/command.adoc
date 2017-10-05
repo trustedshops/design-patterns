@@ -76,6 +76,8 @@ For the undo command we have to call the undo function of all commands in *rever
 
 To find the last element of a command chain we use the special helper Command link:../../main/java/com/trustedshops/examples/javaDesignPatterns/command/commands/CommandChain.java[CommandChain] class.
 
+image:diagram-command-classes-aggregation-chain.png[Diagram]
+
 This class has no functionality by it self, it only forward the execute or undo call to the command objects.
 
 image:diagram-command-chain-seq.png[Sequence Diagram]

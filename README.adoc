@@ -1,5 +1,7 @@
 = Design Patterns
 
+This is a collection of design patterns:
+
 - link:src/docs/asciidoc/chain.adoc[Chain of Responsibility]
 - link:src/docs/asciidoc/command.adoc[Command]
 
@@ -9,6 +11,10 @@ build the project:
 
   $ gradle build
 
+run tests:
+
+  $ gradle test
+
 generate documentation:
 
   $ gradle asciidoctor
@@ -17,10 +23,6 @@ generate documentation:
 you can find the files here:
 
   build/asciidoc/html5/
-
-run tests:
-
-  $ gradle test
 
 run the project:
 

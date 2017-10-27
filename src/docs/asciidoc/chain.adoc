@@ -8,11 +8,11 @@ image:diagram-chain-classes.png[Diagram]
 
 == The Base Class
 
-The interface link:../../main/java/com/trustedshops/examples/javaDesignPatterns/chain/ChainElement.java[ChainElement] describes the necessary functions.
+The interface link:../../main/java/com/trustedshops/examples/patterns/chain/ChainElement.java[ChainElement] describes the necessary functions.
 
 [source,java]
 ----
-package com.trustedshops.examples.javaDesignPatterns.chain;
+package com.trustedshops.examples.petterns.chain;
 
 public interface ChainElement<T> {
     ChainElement<T> getSucessor();
@@ -26,7 +26,7 @@ public interface ChainElement<T> {
 
 == How to use the Chain
 
-Create the root element and add the preceding elemnts by using the setSucessor method (see link:../../test/java/com/trustedshops/examples/javaDesignPatterns/chain/filechain/FileChainTest.java[FileChainTest]).
+Create the root element and add the preceding elemnts by using the setSucessor method (see link:../../test/java/com/trustedshops/examples/petterns/chain/filechain/FileChainTest.java[FileChainTest]).
 
 image:diagram-chain-classes-aggregation.png[Diagram]
 

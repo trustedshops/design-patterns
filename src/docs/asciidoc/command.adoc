@@ -43,7 +43,7 @@ Here are the equvalent command objects:
 
 image:diagram-command-classes-aggregation.png[Diagram]
 
-In the link:../../main/java/com/trustedshops/examples/petterns/command/commands/AbstractCommand.java[AbstractCommand] class you can see the chain execution code:
+In the link:../../main/java/com/trustedshops/examples/patterns/command/commands/AbstractCommand.java[AbstractCommand] class you can see the chain execution code:
 
 [source,java]
 ----
@@ -62,7 +62,7 @@ image:diagram-command-seq.png[Sequence Diagram]
 
 ==== Undo Command chain
 
-For the undo command we have to call the undo function of all commands in *reverse* order. Therefor we have to stat with the last Command and then call the ancestor in the link:../../main/java/com/trustedshops/examples/petterns/command/commands/AbstractCommand.java[AbstractCommand] class.
+For the undo command we have to call the undo function of all commands in *reverse* order. Therefor we have to stat with the last Command and then call the ancestor in the link:../../main/java/com/trustedshops/examples/patterns/command/commands/AbstractCommand.java[AbstractCommand] class.
 
 [source,java]
 ----
@@ -74,7 +74,7 @@ For the undo command we have to call the undo function of all commands in *rever
     }
 ----
 
-To find the last element of a command chain we use the special helper Command link:../../main/java/com/trustedshops/examples/petterns/command/commands/CommandChain.java[CommandChain] class.
+To find the last element of a command chain we use the special helper Command link:../../main/java/com/trustedshops/examples/patterns/command/commands/CommandChain.java[CommandChain] class.
 
 image:diagram-command-classes-aggregation-chain.png[Diagram]
 

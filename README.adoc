@@ -1,4 +1,4 @@
-= Java Design Patterns
+= Design Patterns
 
 - link:src/docs/asciidoc/chain.adoc[Chain of Responsibility]
 - link:src/docs/asciidoc/command.adoc[Command]

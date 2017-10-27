@@ -3,9 +3,9 @@
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
-  <bean id="messageDigestFactory" class="com.trustedshops.examples.javaDesignPatterns.factory.MessageDigestFactoryImpl">
+  <bean id="messageDigestFactory" class="com.trustedshops.examples.patterns.factory.MessageDigestFactoryImpl">
     <constructor-arg type="java.lang.String" value="${digest.algorithm}"/>
   </bean>
 
-  <bean id="commandFactory" class="com.trustedshops.examples.javaDesignPatterns.command.CommandParserImpl"/>
+  <bean id="commandFactory" class="com.trustedshops.examples.patterns.command.CommandParserImpl"/>
 </beans>

@@ -1,17 +1,17 @@
 package com.trustedshops.examples.patterns.command;
 
 import com.trustedshops.examples.patterns.command.commands.CommandChain;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.*;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CommandEdgeCasesTest {
     private CommandParser parser;
 
-    @Before
+    @BeforeEach
     public void init() {
         parser = new CommandParserImpl();
     }
@@ -32,30 +32,30 @@ public class CommandEdgeCasesTest {
         assertEquals(asList("README.md"), fs.getFiles());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void noLines() {
-        parser.parse();
+        assertThrows(IllegalArgumentException.class, () -> parser.parse());
     }
 
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void commandNotFound() {
-        parser.parse("xxx 1 2");
+        assertThrows(IllegalArgumentException.class, () -> parser.parse("xxx 1 2"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void noCommand() {
-        parser.parse("");
+        assertThrows(IllegalArgumentException.class, () -> parser.parse(""));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void noInvalidCommand() {
-        parser.parse("copy");
+        assertThrows(IllegalArgumentException.class, () -> parser.parse("copy"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void noInvalidCommandChain() {
-        parser.parse("newClone 1.txt 2.txt", "");
+        assertThrows(IllegalArgumentException.class, () -> parser.parse("newClone 1.txt 2.txt", ""));
     }
 
 }

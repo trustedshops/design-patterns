@@ -1,13 +1,12 @@
 package com.trustedshops.examples.patterns.chain.filechain;
 
 import com.trustedshops.examples.patterns.utils.io.IOFile;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.stream.Collectors;
-
 import static com.trustedshops.examples.patterns.MockUtils.*;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class FileChainTest {
     private static final IOFile[] FILES = new IOFile[] {

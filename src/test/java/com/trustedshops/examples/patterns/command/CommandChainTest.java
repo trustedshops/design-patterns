@@ -1,17 +1,16 @@
 package com.trustedshops.examples.patterns.command;
 
 import com.trustedshops.examples.patterns.command.commands.CommandChain;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.*;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CommandChainTest {
     private CommandParser parser;
 
-    @Before
+    @BeforeEach
     public void init() {
         parser = new CommandParserImpl();
     }

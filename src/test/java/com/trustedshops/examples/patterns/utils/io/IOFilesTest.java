@@ -1,13 +1,14 @@
 package com.trustedshops.examples.patterns.utils.io;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class IOFilesTest {
-    @Test(expected = NullPointerException.class)
+    @Test
     public void getExtensionForNull() {
-        IOFiles.getExtension((String) null);
+        assertThrows(NullPointerException.class, () -> IOFiles.getExtension((String) null));
     }
 
     @Test
